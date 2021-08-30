@@ -17,6 +17,9 @@ For my Kanban board I began by entering all of the tasks I was currently aware o
 The risk assesment enabled me to foreesee any problems and how to handle them if they occured.
 (date it). 
 
+![pic](/Users/AAA/Documents/QA_images/risk_assessment.png)
+
+
 
 # ERD
 
