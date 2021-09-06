@@ -2,9 +2,9 @@ from application import db #, Aeroplanes, Flights
 db.drop_all()
 db.create_all()
 
-#boeing_747= Aeroplanes(model_number = 5674538, number_of_seats = 102, company_owned_by ="Emirates")
-#db.session.add(boeing_747)
-#db.session.commit()
+boeing_747= Aeroplanes(model_number = 5674538, number_of_seats = 102, company_owned_by ="Emirates")
+db.session.add(boeing_747)
+db.session.commit()
 
 #ja = Flights(depature_date_time = )
 #flight_id = db.Column(db.Integer, Primary_key=True) #QUESTION is a primary key naturally unique?
