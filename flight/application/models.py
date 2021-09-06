@@ -7,6 +7,7 @@ class Aeroplanes(db.Model):
     company_owned_by = db.Column(db.String(30), nullable=False)
     flights = db.relationship('Flights', backref='aeroplane')
 
+    
 
 class Flights(db.Model):
     flight_id = db.Column(db.Integer, primary_key=True) 
@@ -15,4 +16,5 @@ class Flights(db.Model):
     arrival_destination = db.Column(db.String(20), nullable=False)
     direct_flight = db.Column(db.Boolean, default=True)
     flight_price = db.Column(db.Float, nullable=False)
-    fk_aeroplane_id = db.Column(db.Integer, db.ForeignKey('aeroplanes.aeroplane_id'), nullable=False)
+    fk_aeroplane_id = db.Column(db.Integer, db.ForeignKey('aeroplanes.aeroplane_id'), nullable=False) 
+    #hello
