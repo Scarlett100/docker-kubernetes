@@ -3,7 +3,7 @@ from application.models import Flights
 
 @app.route('/add')
 def add():
-    new_flight = Flights(departure_date_time= "Enter desired date", arrival_date_time ="Enter desired date", arrival_destination ="Enter destination" direct_flight = "choose", flight_price = "Enter budget")#would I add foreign key? aeroplane ID?
+    new_flight = Flights(departure_date_time= "Enter desired date", arrival_date_time ="Enter desired date", arrival_destination ="Enter destination", direct_flight = "choose", flight_price = "Enter budget")#would I add foreign key? aeroplane ID?
     db.session.add(new_flight)
     db.session.commit()
     return "Congratulations! you have added a dream flight"
