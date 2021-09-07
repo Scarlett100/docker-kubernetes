@@ -1,5 +1,6 @@
 from application import app, db
 from application.models import Flights
+from flask import Flask, render_template
 
 @app.route('/add')
 def add():
@@ -38,7 +39,7 @@ def delete():
 @app.route('/')
 @app.route('/home')
 def home():
-    return "Welcome, are you ready to make your dream flight to the caribbean?!"
+    return render_template('home.html')
 
 @app.route('/about')
 def about():
