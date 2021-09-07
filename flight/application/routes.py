@@ -8,7 +8,7 @@ from application.forms import FlightsForm, AeroplanesForm
 
 @app.route('/create_aeroplane', methods = ['GET', 'POST'])
 def create_aeroplane():
-
+    message = ""
     form =AeroplanesForm() 
     message = ""
      
@@ -18,12 +18,13 @@ def create_aeroplane():
                 model_number = form.model_number.data,
                 number_of_seats = form.number_of_seats.data,
                 company_owned_by = form.company_owned_by.data
-            )    message = f" you have created an aeroplane owned by {company_owned_by},"
+            )    
+            message = f"you have created aeroplane {model_number} owned by {company_owned_by}, with {number_of_seats}"
 
             db.session.add(aeroplanes)
             db.session.commit()
 
-    return render_template('create_aeroplane.html', form=form, message=message)
+    return render_template('create_aeroplane.html',title= "Create Aeroplane", form=form, message=message)
 
 @app.route('/read')
 def read():
