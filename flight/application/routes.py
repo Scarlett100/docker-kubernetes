@@ -2,6 +2,14 @@ from application import app, db
 from application.models import Flights
 from flask import Flask, render_template
 
+entries = [
+    {
+        'title': 'first entry',
+        'date_posted': 'Today'
+
+    }
+]
+
 @app.route('/add')
 def add():
     new_flight = Flights(departure_date_time= "Enter desired date", arrival_date_time ="Enter desired date", arrival_destination ="Enter destination", direct_flight = "choose", flight_price = "Enter budget")#would I add foreign key? aeroplane ID?
@@ -39,8 +47,8 @@ def delete():
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', entries=entries)
 
-@app.route('/about')
-def about():
-   return 'On this website you can make a flight scheduele for a flight you would like to take'
+#@app.route('/about')
+#def about():
+ #  return 'On this website you can make a flight scheduele for a flight you would like to take'
