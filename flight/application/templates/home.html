@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
-<h2> Are you ready to make your dream flight to the caribbean?!"</h2>
-<h3>On this website you can make a flight scheduele for a flight you would like to take</h3>
+    {% for entry in entires %}
+     <h2{{ entry.title }}</h2>
+     <p> on {{ entry.date_posted}}</p>
+     {% endfor %}
+<h3> Are you ready to make your dream flight to the caribbean?!"</h3>
+<h4>On this website you can make a flight scheduele for a flight you would like to take</h4>
 {% endblock body %}
 
