@@ -1,5 +1,6 @@
 from application import db
 
+
 class Aeroplanes(db.Model):
     aeroplane_id = db.Column(db.Integer, primary_key=True) 
     model_number = db.Column(db.Integer, nullable=False)
@@ -7,6 +8,8 @@ class Aeroplanes(db.Model):
     company_owned_by = db.Column(db.String(30), nullable=False)
     flights = db.relationship('Flights', backref='aeroplane')
 
+    #def __repr__(self):
+        #return
     
 
 class Flights(db.Model):
@@ -17,4 +20,4 @@ class Flights(db.Model):
     direct_flight = db.Column(db.Boolean, default=True)
     flight_price = db.Column(db.Float, nullable=False)
     fk_aeroplane_id = db.Column(db.Integer, db.ForeignKey('aeroplanes.aeroplane_id'), nullable=False) 
-    #hello
+   
