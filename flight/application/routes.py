@@ -22,7 +22,7 @@ def create_aeroplane():
             db.session.add(aeroplane)
             db.session.commit()
    
-        message=(f"you have created aeroplane {model_number} owned by {company_owned_by}, with {number_of_seats}")
+        message=(f"you have created aeroplane {model_number} owned by {company_owned_by}, with a capacity of {number_of_seats} seats ")
             
         return redirect(url_for('home', message=message)) 
     return render_template('create_aeroplane.html', form=form) 
