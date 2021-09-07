@@ -1,7 +1,7 @@
 from application import app, db
 from application.models import Flights
 from application.models import Aeroplanes
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from application.forms import FlightsForm, AeroplanesForm
 
 
@@ -11,20 +11,21 @@ def create_aeroplane():
     message = ""
     form =AeroplanesForm() 
     message = ""
-     
     if request.method == 'POST':
         if form.validate_on_submit():
-            aeroplanes = Aeroplanes(
-                model_number = form.model_number.data,
-                number_of_seats = form.number_of_seats.data,
-                company_owned_by = form.company_owned_by.data
-            )    
-            message = f"you have created aeroplane {model_number} owned by {company_owned_by}, with {number_of_seats}"
+            
+            model_number = form.model_number.data
+            number_of_seats = form.number_of_seats.data
+            company_owned_by = form.company_owned_by.data
 
-            db.session.add(aeroplanes)
+            aeroplane = Aeroplanes(model_number = model_number, number_of_seats = number_of_seats, company_owned_by = company_owned_by)  
+            db.session.add(aeroplane)
             db.session.commit()
-
-    return render_template('create_aeroplane.html',title= "Create Aeroplane", form=form, message=message)
+   
+        message=(f"you have created aeroplane {model_number} owned by {company_owned_by}, with {number_of_seats}")
+            
+        return redirect(url_for('home', message=message)) 
+    return render_template('create_aeroplane.html', form=form) 
 
 @app.route('/read')
 def read():
