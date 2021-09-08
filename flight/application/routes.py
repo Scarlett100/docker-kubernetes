@@ -29,36 +29,38 @@ def create_aeroplane():
 
 @app.route('/create_flight', methods = ['GET', 'POST'])
 def create_flight():
-    message = "abc"
+    message = ""
     form =FlightsForm() 
     
     if request.method == 'POST':
         if form.validate_on_submit():
-            departure_date_time = form.departure_date_time.data
-            arrival_date_time= form.arrival_date_time.data
+            departure_date = form.departure_date.data
+            arrival_date = form.arrival_date.data
             arrival_destination = form.arrival_destination.data
             direct_flight = form.direct_flight.data
             flight_price = form.flight_price.data
             fk_aeroplane_id = form.fk_aeroplane_id.data
 
-            flights= Flights(departure_date_time = departure_date_time, arrival_date_time=arrival_date_time, arrival_destination =  arrival_destination, direct_flight = direct_flight, flight_price = flight_price, fk_aeroplane_id = fk_aeroplane_id)  
+            flights= Flights(departure_date = departure_date, arrival_date=arrival_date, arrival_destination =  arrival_destination, direct_flight = direct_flight, flight_price = flight_price, fk_aeroplane_id = fk_aeroplane_id)  
 
             db.session.add(flights)
             db.session.commit()
 
-            message=(f"you have created a flight from London on {departure_date_time} arriving at {arrival_date_time} in {arrival_destination} and are on a budget of {flight_price} on aeroplane {fk_aeroplane_id}")
+            message=(f"you have created a flight from London on {departure_date} arriving at {arrival_date} in {arrival_destination} and are on a budget of £{flight_price} on aeroplane {fk_aeroplane_id}")
         return render_template('home.html', message=message) 
     return render_template('create_flight.html', form=form) 
             
 
 
-@app.route('/read')
-def read():
+@app.route('/all_flights') #read
+def AllFlights():
     all_flights = Flights.query.all()
-    flights_string = ''
-    return flights_string
+    return render_template('all_flights.html', all_flights=all_flights)
 
-#i'd like to read second flight &count flights
+@app.route('/all_aeroplanes') #read
+
+
+
 
 @app.route('/update/<int:aeroplane>')
 def update(aeroplane_id):
