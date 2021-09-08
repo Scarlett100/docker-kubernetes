@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block information %}
+<form action='' method = "POST">
+    <p>model_number <input type = "text" name = "model" value="{{Aeroplanes.model_number}}"/></p>
+    <p>number_of_seats <input type = "integer" name = "number of seats"  value="{{Aeroplanes.number_of_seats}}"/></p>
+    <p>company_owned_by <input type = "text" name = "owner" value="{{Aeroplanes.company_owned_by}}"/></p>
+    <p><input type = "submit" value = "Submit" /></p>
+  </form>
+  {% endblock information %}
+
