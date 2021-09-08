@@ -13,8 +13,7 @@ class Aeroplanes(db.Model):
 
     def __repr__(self):
         return f"Aeroplanes('{self.model_number}','{self.number_of_seats}','{self.company_owned_by}'')"
-        #return '<Aeroplanes%r>' % self.id
-        #return
+        
     
 
 class Flights(db.Model):
@@ -29,6 +28,4 @@ class Flights(db.Model):
     def __repr__(self):
         return f"Flights('{self.departure_date}', '{self.arrival_date}', '{self.arrival_destination}','{self.direct_flight}')"
         
-       # '<Flights%r>' % self.id
-        
-        #would i return fk relational fk eg '{self.fk_aeroplane_id} in flights?
+      

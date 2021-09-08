@@ -13,7 +13,7 @@ def create_aeroplane():
     
     if request.method == 'POST':
         if form.validate_on_submit():
-            
+            #aeroplane_id = form.aeroplane_id.data
             model_number = form.model_number.data
             number_of_seats = form.number_of_seats.data
             company_owned_by = form.company_owned_by.data
@@ -22,8 +22,9 @@ def create_aeroplane():
             db.session.add(aeroplane)
             db.session.commit()
    
-        message=(f"you have created aeroplane {model_number} owned by {company_owned_by}, with a capacity of {number_of_seats} seats ")
+        message=(f"you have created aeroplane ,model number {model_number} owned by {company_owned_by}, with a capacity of {number_of_seats} seats ")
             
+           # {aeroplane_id}
         return render_template('home.html', message=message) 
     return render_template('create_aeroplane.html', form=form) 
 
@@ -52,36 +53,57 @@ def create_flight():
             
 
 
-@app.route('/all_flights') #read
+@app.route('/all_flights') #read methods=[GET]if request.method == [GET]:
 def AllFlights():
     all_flights = Flights.query.all()
     return render_template('all_flights.html', all_flights=all_flights)
 
-@app.route('/all_aeroplanes')
+@app.route('/all_aeroplanes') #read methods=[GET] if request.method == [GET]:
 def AllAeroplanes(): 
     all_aeroplanes = Aeroplanes.query.all()
     return render_template('all_aeroplanes.html', all_aeroplanes=all_aeroplanes)
 
 
-
-
-@app.route('/update/<int:aeroplane>')
+@app.route('/update/<int:aeroplane_id>', methods=['GET' , 'POST'])
 def update(aeroplane_id):
-    form =FlightsForm
-    first_flight = Flights.query.first()
-    first_flight.flight_price = flight_price
-    db.session.commit()
-    return first_flight.flight_price
+    aeroplane = Aeroplanes.query.get_or_404(aeroplane_id)
+    form =FlightsForm()
+    if request.method == 'POST':
+        if aeroplane:
+            model_number = request.form ["model" ]
+            number_of_seats = request.form ["number of seats"]
+            company_owned_by = request.form["owner"]
+            aeroplane = Aeroplanes(model_number = model_number, number_of_seats = number_of_seats, company_owned_by = company_owned_by)
+            db.session.commit()
+    return render_template('update.html', form=form, aeroplane=aeroplane) 
 
-@app.route('/delete')
-def delete():
+
+
+
+
+@app.route('/delete_flight/<int:id>', methods=['GET', 'POST']) #deletes flight +aeroplane
+def delete_flight(id):
+    plane_to_delete = Aeroplanes.query.first()
     flight_to_delete = Flights.query.first()
-    db.session.delete(flight_to_delete)
-    db.session.commit()
-    return "You have deleted a flight"
+    if request.method =='POST':
+        if flight_to_delete:
+    
+            db.session.delete(flight_to_delete)
+            db.session.delete(plane_to_delete)
+            db.session.commit()
+        return "You have deleted a flight"
+    return render_template('delete_flight.html')
 
+@app.route('/delete_aeroplane/<int:id>', methods=['GET', 'POST'])
+def delete_plane(id):
+    plane_to_delete = Aeroplanes.query.first()
+    if request.method =='POST':
+        if plane_to_delete:
+            db.session.delete(plane_to_delete)
+            db.session.commit()
+        return "You have deleted an aeroplane"
+    return render_template('delete_plane.html')
 
-#ja = Flights(departure_date_time = )
 
 
 
