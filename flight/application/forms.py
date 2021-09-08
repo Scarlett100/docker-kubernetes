@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField, IntegerField, DateTimeField, BooleanField, DecimalField
+from wtforms import StringField, SubmitField, SelectField, IntegerField, DateTimeField, BooleanField, DecimalField, DateField
 from wtforms.validators import DataRequired, ValidationError, Length
 
 from application.models import Aeroplanes
@@ -27,13 +27,15 @@ class AeroplanesForm(FlaskForm):
 
 
 class FlightsForm(FlaskForm):
-    departure_date_time = DateTimeField("departure date YYYY-MM-DDH:M:S",format="%Y-%m-%d%H:%M:%S")
-    arrival_date_time = DateTimeField("arrival date & time YYY-MM-DDH:M:S",format="%Y-%m-%d%H:%M:%S")
-  
+    departure_date_time = DateField("departure date YYYY-MM-DDH:M:S",format="%Y-%m-%d",
+        validators=[DataRequired()])
+
+    arrival_date_time= DateField("arrival date & time YYY-MM-DDH:M:S",format="%Y-%m-%d")
     arrival_destination = StringField("arrival",
         validators=[DataRequired(), Length(min=2, max=30)])
     direct_flight = BooleanField("direct flight") #selectfield? yes or no
-    flight_price = DecimalField("budget")
+    flight_price = DecimalField("budget (eg. 500 = £500)",
+        validators=[DataRequired()])
     fk_aeroplane_id = IntegerField()
 
     submit = SubmitField("Submit")

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block information %}
+<body>
+    <h2>Add an aeroplane</h2>
+    <p>
+        <div class='form'>
+            <form method='POST' action=" ">
+                {{ form.hidden_tag() }} 
+                {{  form.departure_date_time.label }} {{ form.departure_date_time }}
+                <br>
+                {{ form.arrival_date_time.label }} {{ form.arrival_date_time }}
+                <br>
+                {{ form.arrival_destination.label }} {{ form.arrival_destination }}
+                <br>
+                {{ form.direct_flight.label }} {{ form.direct_flight }}
+                <br>
+                {{ form.flight_price.label }} {{ form.flight_price }}
+                <br>
+                {{ form.fk_aeroplane_id.label }} {{ form.fk_aeroplane_id }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
+{% endblock information %}
+
+

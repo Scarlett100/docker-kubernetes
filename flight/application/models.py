@@ -19,8 +19,8 @@ class Aeroplanes(db.Model):
 
 class Flights(db.Model):
     flight_id = db.Column(db.Integer, primary_key=True) 
-    departure_date_time = db.Column(db.DateTime, nullable=False)
-    arrival_date_time = db.Column(db.DateTime, nullable=False)
+    departure_date_time = db.Column(db.Date, nullable=False)
+    arrival_date_time = db.Column(db.Date, nullable=False)
     arrival_destination = db.Column(db.String(20), nullable=False)
     direct_flight = db.Column(db.Boolean, default=True)
     flight_price = db.Column(db.Float, nullable=False)
