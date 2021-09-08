@@ -1,7 +1,7 @@
 from application import app, db
 from application.models import Flights
 from application.models import Aeroplanes
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,flash
 from application.forms import FlightsForm, AeroplanesForm
 
 
@@ -10,7 +10,7 @@ from application.forms import FlightsForm, AeroplanesForm
 def create_aeroplane():
     message = ""
     form =AeroplanesForm() 
-    message = ""
+    
     if request.method == 'POST':
         if form.validate_on_submit():
             
@@ -24,8 +24,10 @@ def create_aeroplane():
    
         message=(f"you have created aeroplane {model_number} owned by {company_owned_by}, with a capacity of {number_of_seats} seats ")
             
-        return redirect(url_for('home', message=message)) 
+        return render_template('home.html', message=message) 
     return render_template('create_aeroplane.html', form=form) 
+
+
 
 @app.route('/read')
 def read():
@@ -35,8 +37,9 @@ def read():
         flights_string += "<br>"+ flight.arrival_destination
     return flights_string
 
-@app.route('/update/<flight_price>')
-def update(flight_price):
+@app.route('/update/<int:aeroplane>')
+def update(aeroplane_id):
+    form =FlightsForm
     first_flight = Flights.query.first()
     first_flight.flight_price = flight_price
     db.session.commit()
@@ -57,7 +60,8 @@ def delete():
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    aeroplane = Aeroplanes.query.all()
+    return render_template('home.html',aeroplane=aeroplane)
 
 #@app.route('/about')
 #def about():
