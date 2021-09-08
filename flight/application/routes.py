@@ -57,7 +57,10 @@ def AllFlights():
     all_flights = Flights.query.all()
     return render_template('all_flights.html', all_flights=all_flights)
 
-@app.route('/all_aeroplanes') #read
+@app.route('/all_aeroplanes')
+def AllAeroplanes(): 
+    all_aeroplanes = Aeroplanes.query.all()
+    return render_template('all_aeroplanes.html', all_aeroplanes=all_aeroplanes)
 
 
 
