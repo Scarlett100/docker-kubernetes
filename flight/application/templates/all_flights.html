@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block information %}
+<h1> Flights</h1>
+{% for Flights in all_flights %}
+<h3>{{ Flights }}</h3></hr>
+{% endfor %}
+{% endblock information %}
