@@ -49,7 +49,7 @@ def create_flight():
             
             flights= Flights(departure_date = departure_date, arrival_date=arrival_date, arrival_destination =  arrival_destination, direct_flight = direct_flight, flight_price = flight_price, fk_aeroplane_id = fk_aeroplane_id)
 
-            #for fk_aeroplane_id in allFlights:
+            
 
             db.session.add(flights)
             db.session.commit()
