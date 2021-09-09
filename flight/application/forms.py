@@ -6,7 +6,7 @@ from application.models import Aeroplanes
 from application.models import Flights
 
 class AeroplanesForm(FlaskForm):
-    
+
     model_number = SelectField("model", choices=[(747, 747),
     (812, 812),
     (989, 989)
@@ -37,7 +37,9 @@ class FlightsForm(FlaskForm):
     direct_flight = BooleanField("direct flight") #selectfield? yes or no
     flight_price = DecimalField("budget (eg. 500.50 = £500.50)",
         validators=[DataRequired()])
-    fk_aeroplane_id = IntegerField()
+    fk_aeroplane_id = SelectField('aeroplane', choices=[
+        (0, 0)
+        ])
 
     submit = SubmitField("Submit")
 
