@@ -38,7 +38,7 @@ class FlightsForm(FlaskForm):
     flight_price = DecimalField("budget (eg. 500.50 = £500.50)",
         validators=[DataRequired()])
     fk_aeroplane_id = SelectField('aeroplane', choices=[
-        (0, 0)
+        (0, 0), 
         ])
 
     submit = SubmitField("Submit")

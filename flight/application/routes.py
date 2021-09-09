@@ -85,10 +85,10 @@ def updatePlane(id):
              
             db.session.commit()
             return redirect(url_for('AllAeroplanes'))
-            #return redirect(url_for('home'))
+            
 
     elif request.method == 'GET':
-        #print(update_aeroplane)
+        
         form.model_number.data = update_aeroplane.model_number
         form.number_of_seats.data = update_aeroplane.number_of_seats
         form.company_owned_by.data = update_aeroplane.company_owned_by
@@ -97,18 +97,18 @@ def updatePlane(id):
 
 
 @app.route('/update_flights/<int:id>', methods=['GET' , 'POST'])
-def updateFlight(id):
+def updateFlights(id):
     form =FlightsForm()
     update_flight = Flights.query.filter_by(flight_id=id).first()
 
     if request.method == 'POST':
         if form.validate_on_submit():
-            update_departure_date = form.departure_date.data
-            update_arrival_date = form.arrival_date.data
-            update_arrival_destination = form.arrival_destination.data
-            update_direct_flight = form.direct_flight.data
-            update_flight_price = form.flight_price.data
-            fk_aeroplane_id = form.fk_aeroplane_id.data
+            update_flight.departure_date = form.departure_date.data
+            update_flight.arrival_date = form.arrival_date.data
+            update_flight.arrival_destination = form.arrival_destination.data
+            update_flight.direct_flight = form.direct_flight.data
+            update_flight.flight_price = form.flight_price.data
+            update_flight.fk_aeroplane_id = form.fk_aeroplane_id.data
              
             db.session.commit()
             return redirect(url_for('AllFlights'))
@@ -116,17 +116,17 @@ def updateFlight(id):
 
     elif request.method == 'GET':
       
-            form.departure_date.data = update_departure_date  
-            form.arrival_date.data = update_arrival_date 
-            form.arrival_destination.data = update_arrival_destination 
-            form.direct_flight.data = update_direct_flight 
-            form.flight_price.data = update_flight_price 
-            
-    flights= Flights(departure_date = departure_date, arrival_date=arrival_date, arrival_destination =  arrival_destination, direct_flight = direct_flight, flight_price = flight_price, fk_aeroplane_id = fk_aeroplane_id)
+            form.departure_date.data = update_flight.departure_date  
+            form.arrival_date.data = update_flight.arrival_date 
+            form.arrival_destination.data = update_flight.arrival_destination 
+            form.direct_flight.data = update_flight.direct_flight 
+            form.flight_price.data = update_flight.flight_price 
+            form.fk_aeroplane_id = update_flight.fk_aeroplane_id
+    
     return render_template('update_flights.html',form=form )
 
 
-@app.route('/delete_flight/<int:id>', methods=['GET', 'POST']) #deletes flight +aeroplane
+@app.route('/delete_flight/<int:id>', methods=['GET', 'POST']) #deletes                         flight +aeroplane
 def delete_flight(id):
     
     flight_to_delete = Flights.query.first()
