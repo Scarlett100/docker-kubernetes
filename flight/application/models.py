@@ -23,7 +23,7 @@ class Flights(db.Model):
     arrival_destination = db.Column(db.String(20), nullable=False)
     direct_flight = db.Column(db.Boolean, default=True)
     flight_price = db.Column(db.Float, nullable=False)
-    fk_aeroplane_id = db.Column(db.Integer, db.ForeignKey('aeroplanes.aeroplane_id'), nullable=False) 
+    fk_aeroplane_id = db.Column(db.Integer, db.ForeignKey('aeroplanes.aeroplane_id'), nullable=False                                                                                   ) 
    
     def __repr__(self):
         return f"Flights('{self.departure_date}', '{self.arrival_date}', '{self.arrival_destination}','{self.direct_flight}')"

@@ -2,6 +2,7 @@
 {% block information %}
 <h1> Flights </h1>
 {% for Flights in all_flights %}
-<h3>{{ Flights }}</h3></hr>
+<h3> {{ Flights.fk_aeroplane_id }} {{Flights.flight_id}} {{Flights.departure_date}} {{Flights.arrival_date}} {{Flights.arrival_destination}} {{Flights.direct_flight}} {{Flights.flight_price}}</h3></hr>
 {% endfor %}
 {% endblock information %}
+

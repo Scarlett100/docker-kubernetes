@@ -2,6 +2,6 @@
 {% block information %}
 <h1> Aeroplanes </h1>
 {% for Aeroplanes in all_aeroplanes %}
-<h3>{{ Aeroplanes }}</h3></hr>
+<h3>{{ Aeroplanes.aeroplane_id }} {{ Aeroplanes.model_number }} {{ Aeroplanes.number_of_seats }} {{ Aeroplanes.company_owned_by }} </h3></hr>
 {% endfor %}
 {% endblock information %}

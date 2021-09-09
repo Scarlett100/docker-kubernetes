@@ -1,7 +1,27 @@
+
+
 <html>
     <body>
     <h1>Welcome!</h1>
     {% block information %}
     {% endblock information %}
+    
+    
+    <hr>
+     
+     <div class=navbar> 
+        <a href="{{ url_for('home') }}">&emsp; Home &emsp;</a>  
+        <a href="{{ url_for('create_flight') }}">&emsp; create a flight &emsp;</a>  
+        <a href="{{ url_for('create_aeroplane') }}">&emsp; create an aeroplane &emsp;</a> 
+        <a href="{{ url_for('AllAeroplanes') }}">&emsp; current aeroplanes &emsp;</a> 
+        <a href="{{ url_for('AllFlights') }}">&emsp; current flights &emsp;</a> 
+        
+      
+       
+       
+    </div><br> 
+    
+    
+
     </body>
     </html>

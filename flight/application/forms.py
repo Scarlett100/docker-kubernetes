@@ -6,6 +6,7 @@ from application.models import Aeroplanes
 from application.models import Flights
 
 class AeroplanesForm(FlaskForm):
+    
     model_number = SelectField("model", choices=[(747, 747),
     (812, 812),
     (989, 989)
