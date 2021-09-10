@@ -62,12 +62,13 @@ def create_flight():
             
 
 
-@app.route('/all_flights') #read methods=[GET]if request.method == [GET]:
+@app.route('/all_flights', methods=['GET'])
 def AllFlights():
+    
     all_flights = Flights.query.all()
     return render_template('all_flights.html', all_flights=all_flights)
 
-@app.route('/all_aeroplanes') #read methods=[GET] if request.method == [GET]:
+@app.route('/all_aeroplanes', methods=['GET'])
 def AllAeroplanes(): 
     all_aeroplanes = Aeroplanes.query.all()
     return render_template('all_aeroplanes.html', all_aeroplanes=all_aeroplanes)
@@ -145,10 +146,10 @@ def delete_flight(id):
             return redirect(url_for('AllFlights'))
     return render_template('delete_flight.html')
 
-@app.route('/delete_aeroplane/<int:id>', methods=['GET', 'POST'])
+@app.route('/delete_aeroplane/<int:id>', methods=['GET'])
 def delete_plane(id):
     plane_to_delete = Aeroplanes.query.get(id)
-    if request.method =='POST':
+    if request.method =='GET':
         if plane_to_delete:
             db.session.delete(plane_to_delete)
             db.session.commit()

@@ -7,22 +7,22 @@ from application.models import Flights
 from application.models import Aeroplanes   
 
 #base class
-class TestBase(TestCase):
-    def create_app(self):
+class TestBase(TestCase):#inheriting testbase class
+    def create_app(self):#creates instance of an app,returning created app
         app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///",
-                SECRET_KEY='Test_SECRET_KEY',
+                SECRET_KEY='Test_SECRET_KEY', #UPDATE:secret key
                 Debug=True,
                 WTF_CSRF_ENABLED=False
                 
                 )
         return app
-    def setUp(self)
+    def setUp(self) #fetching database
         """
         Will be called before every test
         """
         db.session.commit() #clears any date and creates table
-        db.drop_all()
-        db.create_all()
+        db.drop_all() #drops db
+        db.create_all()#create db
 
         first_aeroplane = Aeroplanes(
             model_number = "818"
@@ -41,14 +41,14 @@ class TestBase(TestCase):
             fk_aeroplane_id = "1"
         db.session.add(first_flight)
         db.session.commit()
-
+#making sure databse isn't empty
         )
 
     def tearDown(self): #closes database session
         db.session.remove()
         db.drop_all()
 
-class TestViews(TestBase)    #testing homepage loads
+class TestViews(TestBase)    #testing homepage loads test views, inheriting test views. all attributes in test base will be avaliable in test views.
     def testing_home(self):
         response = self.client.get(url_for 'home')
         self.assertEqual(response.status_code, 200)
@@ -75,14 +75,14 @@ class TestAddingFlight #tests CREATEting flight (post)
 
 # Test CREATEting CREATING aeroplane (GET)
 
-class TestViewingCreateAeroplane(TestBase)
+class TestViewingCreateAeroplane(TestBase):
     def testing_create_aeroplane_get(self)
         response = self.client.get(url_for('create_aeroplane'))
         self.assertIn(b'Vueling', response.data) #do i need to add the airplane dictionary  
 
 # tests CREATEting flight (post)
-class TestAddingFlight #tests CREATEting Aeroplane (post)
-    def test_add_flight_post(self)
+class TestAddingFlight: #tests CREATEting Aeroplane (post)
+    def test_add_flight_post(self):
         response = self.client.post(url_for('create_flight'))
         data = dict(  model_number = "818"
                     number_of_seats =  "22"
@@ -94,18 +94,18 @@ class TestAddingFlight #tests CREATEting Aeroplane (post)
 
 
        
-class TestViewAeroplane(TestBase)     #testing aeroplane page loads (get) not sure itwill work still need to determine method 
+class TestViewAeroplane(TestBase):    #testing aeroplane page loads (get) not sure itwill work still need to determine method 
     def testing_Aeroplane_view(self):
         response = self.client.get(url_for 'AllAeroplanes')
         self.assertEqual(response.status_code, 200) 
 
-class TestViewFlights(TestBase)    #testing flight page loads (get)
+class TestViewFlights(TestBase):    #testing flight page loads (get)
     def testing_Flights_view(self):
         response = self.client.get(url_for 'AllFlights')
         self.assertEqual(response.status_code, 200) 
 
 
-    class TestViewUpdateFlight(TestBase)     #testing Flight page loads(GET)
+    class TestViewUpdateFlight(TestBase):     #testing Flight page loads(GET)
     def testing_updating_Flight_view(self):
         response = self.client.get(url_for 'updateFlights')
         self.assertEqual(response.status_code, 200)     
@@ -128,7 +128,7 @@ class Test_Updating_Flight(TestBase):  #Test updating an flight (POST)
 
 
 
-class TestViewUpdateAeroplane(TestBase)     #testing aeroplane page loads (get)
+class TestViewUpdateAeroplane(TestBase)     #testing aeroplane page loads (get) #post - because you are updating,performing
     def testing_updating_Aeroplane_view(self):
         response = self.client.get(url_for 'updatePlane')
         self.assertEqual(response.status_code, 200)     
