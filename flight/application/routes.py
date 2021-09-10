@@ -98,7 +98,7 @@ def updatePlane(id):
 
 @app.route('/update_flights/<int:id>', methods=['GET' , 'POST'])
 def updateFlights(id):
-    message =""
+    
     form =FlightsForm()
     update_flight = Flights.query.filter_by(flight_id=id).first()
     aeroplane = Aeroplanes.query.all()
@@ -114,8 +114,7 @@ def updateFlights(id):
             update_flight.flight_price = form.flight_price.data
             update_flight.fk_aeroplane_id = form.fk_aeroplane_id.data
 
-             if fk_aeroplane_id == 0
-             return message(" please create aeroplane first, as no aeroplane has yet been created. " message=message)
+           
              
             db.session.commit()
             return redirect(url_for('AllFlights'))

@@ -37,9 +37,7 @@ class FlightsForm(FlaskForm):
     direct_flight = BooleanField("direct flight") #selectfield? yes or no
     flight_price = DecimalField("budget (eg. 500.50 = £500.50)",
         validators=[DataRequired()])
-    fk_aeroplane_id = SelectField('aeroplane', choices=[
-        (0, 0),
-        ])
+    fk_aeroplane_id = SelectField('aeroplane', choices=[])
 
     submit = SubmitField("Submit")
 

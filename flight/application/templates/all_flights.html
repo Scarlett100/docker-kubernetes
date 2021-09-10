@@ -2,9 +2,35 @@
 {% block information %}
 <h1> Flights </h1>
 {% for Flights in all_flights %}
-<h3> {{ Flights.fk_aeroplane_id }} {{Flights.flight_id}} {{Flights.departure_date}} {{Flights.arrival_date}} {{Flights.arrival_destination}} {{Flights.direct_flight}} {{Flights.flight_price}}</h3></hr>
-<a href="{{ url_for('updateFlights',id=Flights.flight_id) }}"> update a flight </a> <br> 
-<a href="{{ url_for('delete_flight',id=Flights.flight_id) }}"> delete a flight </a> <br>
+<style>
+table, th, td {
+    border:1px solid rgb(0, 0, 0);
+}
+</style>
+<table style="width:40%">
+<tr>
+    <th>Aeroplane id</th>
+    <th>Flight id</th>
+    <th>Departure date</th>
+    <th>Arrival date</th>
+    <th>Destination</th>
+    <th>Direct Flight</th>
+    <th>Budget</th>
+</tr>
+<tr>
+    <td> {{ Flights.fk_aeroplane_id }} </td> 
+    <td> {{Flights.flight_id}} </td> 
+    <td> {{Flights.departure_date}} </td>
+    <td> {{Flights.arrival_date}} </td>
+    <td> {{Flights.arrival_destination}} </td>
+    <td> {{Flights.direct_flight}} </td>
+    <td> {{Flights.flight_price}} </td>
+</tr>
+</table>
+
+  
+<a href="{{ url_for('updateFlights',id=Flights.flight_id) }}"> update this flight </a> <br> 
+<a href="{{ url_for('delete_flight',id=Flights.flight_id) }}"> delete this flight </a> <br>
 {% endfor %}
 {% endblock information %}
 
