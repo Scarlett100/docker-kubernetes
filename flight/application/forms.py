@@ -31,8 +31,8 @@ class FlightsForm(FlaskForm):
     departure_date = DateField("departure date YYYY-MM-DD",format="%Y-%m-%d",
         validators=[DataRequired()])
 
-    arrival_date= DateField("arrival date & time YYY-MM-DD",format="%Y-%m-%d")
-    arrival_destination = StringField("arrival",
+    arrival_date= DateField("arrival date & time YYYY-MM-DD",format="%Y-%m-%d")
+    arrival_destination = StringField("Destination",
         validators=[DataRequired(), Length(min=2, max=30)])
     direct_flight = BooleanField("direct flight") #selectfield? yes or no
     flight_price = DecimalField("budget (eg. 500.50 = £500.50)",

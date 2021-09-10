@@ -13,7 +13,7 @@ def create_aeroplane():
     
     if request.method == 'POST':
         if form.validate_on_submit():
-            #aeroplane_id = form.aeroplane_id.data
+           
             model_number = form.model_number.data
             number_of_seats = form.number_of_seats.data
             company_owned_by = form.company_owned_by.data
@@ -24,7 +24,7 @@ def create_aeroplane():
    
         message=(f"you have created aeroplane ,model number {model_number} owned by {company_owned_by}, with a capacity of {number_of_seats} seats ")
             
-           # {aeroplane_id}
+          
         return render_template('home.html', message=message) 
     return render_template('create_aeroplane.html', title='create aeroplane', form=form) 
 
@@ -132,7 +132,7 @@ def updateFlights(id):
     return render_template('update_flights.html',form=form )
 
 
-@app.route('/delete_flight/<int:id>', methods=['GET', 'POST']) #deletes                         flight +aeroplane
+@app.route('/delete_flight/<int:id>', methods=['GET', 'POST']) 
 def delete_flight(id):
     
     flight_to_delete = Flights.query.get(id)
@@ -159,9 +159,5 @@ def delete_plane(id):
 @app.route('/')
 @app.route('/home')
 def home():
-    #postData= Flights.query.all()
     return render_template('home.html', )
 
-#@app.route('/about')
-#def about():
- #flights=postData
