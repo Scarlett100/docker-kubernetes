@@ -3,5 +3,7 @@
 <h1> Aeroplanes </h1>
 {% for Aeroplanes in all_aeroplanes %}
 <h3>{{ Aeroplanes.aeroplane_id }} {{ Aeroplanes.model_number }} {{ Aeroplanes.number_of_seats }} {{ Aeroplanes.company_owned_by }} </h3></hr>
+<a href="{{ url_for('updatePlane',id=Aeroplanes.aeroplane_id) }}"> update an aeroplane </a> <br> 
+<a href="{{ url_for('delete_plane',id=Aeroplanes.aeroplane_id) }}"> delete an aeroplane </a> <br>
 {% endfor %}
 {% endblock information %}

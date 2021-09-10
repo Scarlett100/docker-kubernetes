@@ -98,8 +98,12 @@ def updatePlane(id):
 
 @app.route('/update_flights/<int:id>', methods=['GET' , 'POST'])
 def updateFlights(id):
+    message =""
     form =FlightsForm()
     update_flight = Flights.query.filter_by(flight_id=id).first()
+    aeroplane = Aeroplanes.query.all()
+    for fk_aeroplane_id in aeroplane:
+        form.fk_aeroplane_id.choices.append((fk_aeroplane_id.aeroplane_id,fk_aeroplane_id.aeroplane_id))
 
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -109,6 +113,9 @@ def updateFlights(id):
             update_flight.direct_flight = form.direct_flight.data
             update_flight.flight_price = form.flight_price.data
             update_flight.fk_aeroplane_id = form.fk_aeroplane_id.data
+
+             if fk_aeroplane_id == 0
+             return message(" please create aeroplane first, as no aeroplane has yet been created. " message=message)
              
             db.session.commit()
             return redirect(url_for('AllFlights'))
@@ -129,23 +136,22 @@ def updateFlights(id):
 @app.route('/delete_flight/<int:id>', methods=['GET', 'POST']) #deletes                         flight +aeroplane
 def delete_flight(id):
     
-    flight_to_delete = Flights.query.first()
+    flight_to_delete = Flights.query.get(id)
     if request.method =='POST':
         if flight_to_delete:
-    
             db.session.delete(flight_to_delete)
             db.session.commit()
-        return "You have deleted a flight"
+            return redirect(url_for('AllFlights'))
     return render_template('delete_flight.html')
 
 @app.route('/delete_aeroplane/<int:id>', methods=['GET', 'POST'])
 def delete_plane(id):
-    plane_to_delete = Aeroplanes.query.first()
+    plane_to_delete = Aeroplanes.query.get(id)
     if request.method =='POST':
         if plane_to_delete:
             db.session.delete(plane_to_delete)
             db.session.commit()
-        return "You have deleted an aeroplane"
+            return redirect(url_for('AllAeroplanes'))
     return render_template('delete_aeroplane.html')
 
 
@@ -154,10 +160,9 @@ def delete_plane(id):
 @app.route('/')
 @app.route('/home')
 def home():
-    postData= Flights.query.all()
-    #postData= Flights.query.all(all)
-    return render_template('home.html', flights=postData)
+    #postData= Flights.query.all()
+    return render_template('home.html', )
 
 #@app.route('/about')
 #def about():
- #  return 'On this website you can make a flight scheduele for a flight you would like to take'
+ #flights=postData
