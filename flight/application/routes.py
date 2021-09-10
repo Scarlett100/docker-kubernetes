@@ -4,7 +4,9 @@ from application.models import Aeroplanes
 from flask import Flask, render_template, request, redirect, url_for,flash
 from application.forms import FlightsForm, AeroplanesForm
 
-
+@app.route('/')
+def home():
+    return render_template('home.html', )
 
 @app.route('/create_aeroplane', methods = ['GET', 'POST'])
 def create_aeroplane():
@@ -156,8 +158,5 @@ def delete_plane(id):
 
 
 
-@app.route('/')
-@app.route('/home')
-def home():
-    return render_template('home.html', )
+
 
