@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, IntegerField, DateTimeField, BooleanField, DecimalField, DateField
 from wtforms.validators import DataRequired, ValidationError, Length
-
 from application.models import Aeroplanes
 from application.models import Flights
 

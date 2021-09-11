@@ -3,6 +3,9 @@ from application.models import Flights
 from application.models import Aeroplanes
 from flask import Flask, render_template, request, redirect, url_for,flash
 from application.forms import FlightsForm, AeroplanesForm
+import pymysql
+pymysql.install_as_MySQLdb()
+
 
 @app.route('/')
 def home():
