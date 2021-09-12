@@ -5,7 +5,7 @@ from flask_testing import TestCase
 from application import app, db
 from application.models import Flights , Aeroplanes
 from datetime import datetime
-  
+import unittest  
 
 #base class
 class TestBase(TestCase):#inheriting testbase class
@@ -54,10 +54,18 @@ class TestViews(TestBase):    #testing homepage loads test views, inheriting tes
         response = self.client.get(url_for ('home'))
         self.assertEqual(response.status_code, 200)
 
+
 class TestViewingCreateFlight(TestBase): #(Get) request for adding/creating a flight.
     def testing_create_flight_get(self):
         response = self.client.get(url_for('create_flight'))
         self.assertIn(b'flight', response.data)
+
+
+class TestValidateCreateFlight(TestBase):
+    def testval(self):
+        response = self.client.post(url_for('create_flight'))
+        self.assertNotEqual('form_not_validate_on_submit', response.data)
+
 
 
 class TestAddingFlight(TestBase): #tests CREATEting flight (post)
@@ -72,7 +80,7 @@ class TestAddingFlight(TestBase): #tests CREATEting flight (post)
         ),
             follow_redirects =True)
     
-        self.assertIn(b"2021-5-09", response.data) 
+        self.assertIn(b"ideal", response.data) 
 
 # Test CREATEting CREATING aeroplane (GET)
 
@@ -82,7 +90,7 @@ class TestViewingCreateAeroplane(TestBase):
         self.assertIn(b'aeroplane', response.data) #do i need to add the airplane dictionary  
 
 
-class TestAddingFlight(TestBase): #tests CREATEting Aeroplane (post)
+class TestAddingAeroplane(TestBase): #tests CREATEting Aeroplane (post)
     def test__add_post(self):
         response = self.client.post(url_for('create_aeroplane'),
         data = dict( model_number = "818",
@@ -168,6 +176,19 @@ class Test_delete_aeroplane(TestBase):
         ),
         follow_redirects =True)
         self.assertEqual(response.status_code, 200)
+
+class test_delete(TestBase):   #raise an exception with wrong param
+    def test_delete_function(self):
+        with pytest.raises(TypeError):
+            Aeroplanes.get(aeroplane_id='156')
+
+# class test_delete_plane()
+
+# aeroplane = Aeroplanes('868', '48', '85')
+# aeroplane_id = Aeroplanes.delete(aeroplane)
+
+
+
 
 
 
