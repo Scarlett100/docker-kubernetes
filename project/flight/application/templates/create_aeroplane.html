@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block information %}
+<body>
+    <h2>Create an aeroplane</h2>
+    <p>
+        <div class='form'>
+            <form method='POST' action=" ">
+                {{ form.hidden_tag() }} 
+                {{ form.model_number.label }} {{ form.model_number }}
+                <br>
+                {{ form.number_of_seats.label }} {{ form.number_of_seats }}
+                <br>
+                {{ form.company_owned_by.label }} {{ form.company_owned_by }}
+                <br>
+                {{ form.submit }}
+                <br>
+            </form>
+        </div>
+    </p>
+</body>
+{% endblock information %}
