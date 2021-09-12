@@ -135,7 +135,7 @@ class Test_Updating_Flight(TestBase):  #Test updating an flight (POST)
             ),
             follow_redirects =True
         )
-        self.assertIn(b'Flights', response.data)
+        self.assertIn(b'flight', response.data)
 
 
 
@@ -180,15 +180,7 @@ class Test_delete_aeroplane(TestBase):
         follow_redirects =True)
         self.assertNotIn(b'Vueling',response.data)
 
-# class test_delete(TestBase):   #raise an exception with wrong param
-#     def test_delete_function(self):
-#         with pytest.raises(TypeError):
-#             Aeroplanes.get(aeroplane_id='156')
 
-# class test_delete_plane()
-
-# aeroplane = Aeroplanes('868', '48', '85')
-# aeroplane_id = Aeroplanes.delete(aeroplane)
 
 
 

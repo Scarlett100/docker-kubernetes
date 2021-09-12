@@ -11,8 +11,8 @@ class Aeroplanes(db.Model):
     company_owned_by = db.Column(db.String(30), nullable=False)
     flights = db.relationship('Flights', backref='aeroplane', lazy=True)
 
-    #def __repr__(self):
-#return f"Aeroplanes('{self.model_number}','{self.number_of_seats}','{self.company_owned_by}'')"
+    def __repr__(self):
+        return f"Aeroplanes('{self.model_number}','{self.number_of_seats}','{self.company_owned_by}'')"
         
     
 
@@ -25,7 +25,7 @@ class Flights(db.Model):
     flight_price = db.Column(db.Float, nullable=False)
     fk_aeroplane_id = db.Column(db.Integer, db.ForeignKey('aeroplanes.aeroplane_id'), nullable=False                                                                                   ) 
    
-    #def __repr__(self):
-        #return f"Flights('{self.departure_date}', '{self.arrival_date}', '{self.arrival_destination}','{self.direct_flight}')"
+    def __repr__(self):
+        return f"Flights('{self.departure_date}', '{self.arrival_date}', '{self.arrival_destination}','{self.direct_flight}')"
         
       

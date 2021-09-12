@@ -116,13 +116,10 @@ def updateFlights(id):
             update_flight.direct_flight = form.direct_flight.data
             update_flight.flight_price = form.flight_price.data
             update_flight.fk_aeroplane_id = form.fk_aeroplane_id.data
-
-           
-             
-        db.session.commit()
-        return redirect(url_for('AllFlights'))
             
-
+            db.session.commit()
+            return redirect(url_for('AllFlights'))
+            
     elif request.method == 'GET':
       
         form.departure_date.data = update_flight.departure_date  
