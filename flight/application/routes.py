@@ -39,7 +39,7 @@ def create_flight():
     
     aeroplane = Aeroplanes.query.all()
     for fk_aeroplane_id in aeroplane:
-        form.fk_aeroplane_id.choices.append((fk_aeroplane_id.aeroplane_id,fk_aeroplane_id.aeroplane_id))
+        form.fk_aeroplane_id.choices.append((fk_aeroplane_id.aeroplane_id,fk_aeroplane_id.aeroplane_id))  #giving user option to choose already existing aeroplanes in db. essentially aeroplane object in line 40 getting list of aeroplanes object from our database and iterating through the list and for each item we are appending the id to our choice list.
 
 
     if request.method == 'POST':
@@ -146,6 +146,7 @@ def delete_flight(id):
 @app.route('/delete_aeroplane/<int:id>', methods=['GET'])
 def delete_plane(id):
     plane_to_delete = Aeroplanes.query.get(id)
+    #getting all flights, iterate through all flights, for each flight if flights.aeroplane.id=plane to delete.id redirect to do not delete page.html, else continue with everything. 
     if request.method =='GET':
         if plane_to_delete:
             db.session.delete(plane_to_delete)
