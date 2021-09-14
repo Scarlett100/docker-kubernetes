@@ -146,7 +146,7 @@ def delete_flight(id):
 @app.route('/delete_aeroplane/<int:id>', methods=['GET'])
 def delete_plane(id):
     plane_to_delete = Aeroplanes.query.get(id)
-    #getting all flights, iterate through all flights, for each flight if flights.aeroplane.id=plane to delete.id redirect to do not delete page.html, else continue with everything. 
+    #for future improvements:line 149getting all flights, iterate through all flights, for each flight if flights.aeroplane.id=plane to delete.id redirect to do not delete page.html, else continue with everything. 
     if request.method =='GET':
         if plane_to_delete:
             db.session.delete(plane_to_delete)

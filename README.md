@@ -4,20 +4,20 @@ QA flask application with CRUD functionality
 
 # Contents
  
-[Project overview](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#project-overview)
-[Project Tracking](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#project-tracking)
-[Risk Assesment](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#risk-assessment)
-[Architecture]()
-    -[ERD](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#erd)
-    -[Databases](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#databases)
-    -[CI Pipeline]()
-[Testing](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#testing)
-[The app](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#the-app)
-[Areas for improvements](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#areas-of-improvement)
-[Conclusion]()
-[References](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
-[Acknowledgements](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
-[Licenses](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
+* [Project overview](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#project-overview)
+* [Project Tracking](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#project-tracking)
+* [Risk Assesment](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#risk-assessment)
+* [Architecture]()
+     * [ERD](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#erd)
+     * [Databases](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#databases)
+     * [CI Pipeline](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
+* [Testing](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#testing)
+* [The app](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#the-app)
+* [Areas for improvements](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#areas-of-improvement)
+* [Conclusion](https://github.com/Scarlett100/Flight_CRUD_App/tree/dev#conclusion)
+* [References](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
+* [Acknowledgements](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
+* [Licenses](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
 # Project Overview
 
 Our task was to build a Flask application that utilises CRUD functionality. 
@@ -43,7 +43,7 @@ Below is my board towards the beginning of my project:
 Below is my board further along in the project.
 ![image](https://drive.google.com/uc?export=view&id=1SUGIchAK5KAXJ8ERaMZZhuo0i5lpHNay)
 
-
+My Trello board can also be accessed [here](https://trello.com/invite/b/8qmmdDTE/130129f915cdf9b7d90ea137a504734f/airline-app)
 
 
 # Risk Assessment
@@ -59,7 +59,7 @@ The risk assessment responses I was able to implement such as restoring code bac
 
 ![image](https://drive.google.com/uc?export=view&id=1ah3WD01oCclMt2ERWCIurIHbqBDctqpl)
 
-My Risk Assesment can be accessed [here](https://qalearning-my.sharepoint.com/:x:/g/personal/sstewart_qa_com/ERUyRu7gX9xKo__9xxwu8YwBavBTVAdoKXzBUzWQ2M1NgQ?e=OgSf4j)
+My risk assesment can be accessed [here](https://qalearning-my.sharepoint.com/:x:/g/personal/sstewart_qa_com/ERUyRu7gX9xKo__9xxwu8YwBavBTVAdoKXzBUzWQ2M1NgQ?e=OgSf4j)
 # Architecture 
 ## ERD
 
@@ -90,7 +90,7 @@ Below this data was implemented into my models file code.
 ![image](https://drive.google.com/uc?export=view&id=1RxlxBWXYBcIaOOIB-DOqN0C0xbNmL3ef)
 
 
-# CI Pipeline
+## CI Pipeline
 
 Within the CI pipeline we used Python, Flask, Jenkins, Git and Trello.
 Within python code was written in accordance to the Flask framwork, Pytests unit tests were also carried out within python. 
@@ -101,7 +101,7 @@ Although I was unable to get Jenkins to produce a complete build, a freestyle pr
 
 ![image](https://drive.google.com/uc?export=view&id=1KBi7FM9WE5gzO9eDagnoXP70xI2MGuBq)
 
-## Testing
+# Testing
 
 
 
@@ -163,15 +163,17 @@ Also on these pages, is the option for users to update or delete their entry.
 
 ## Areas of improvement
 
-A better working knowledge of HTML:Although not a part of the MVP, an improved working knowledge of HTML would have been very useful and more aesthetically pleasing
-Integration Testing within application: Improved reliability and reflection of the CRUD functionality
-Included further data from my ERD to my models.py such as Customers and orders.
-Add in more “fill in this field” or error messages
-Further CRUD functionality, redirect create flights and create aeroplanes to all flights and all aeroplanes, asthetically and design wise would make application slight smoother.
-Extensive unit test planning: After planning my unit tests, I received a 10% increase in my coverage. Even though only a few of my unit test plans were used it provided clarity and efficiency.
-Increased coverage: By adding utilising more of my planned tests coverage could be improved from 85% to at least 90%. 
-Succesful Utilised Automation through Jenkins.
-Debug issue regarding RDS dataabase connection.
+* A better working knowledge of HTML:Although not a part of the MVP, an improved working knowledge of HTML would have been very useful and more aesthetically pleasing
+* Integration Testing within application: Improved reliability and reflection of the CRUD functionality
+* Included further data from my ERD to my models file such as Customers and orders.
+* Add in more “fill in this field” or error messages
+* Further CRUD functionality, redirect create flights and create aeroplanes to all flights and all aeroplanes, asthetically and design wise would make application slight smoother.
+* Extensive unit test planning: After planning my unit tests, I received a 10% increase in my coverage. Even though only a few of my unit test plans were used it provided clarity and efficiency.
+* Increased coverage: By adding utilising more of my planned tests coverage could be improved from 85% to at least 90%. 
+* Incorporate Guicorn, Selenium and system d as a sevice.
+* Succesful Utilised Automation through Jenkins: I was unable to achieve a build, as shown below
+![image](https://drive.google.com/uc?export=view&id=1E4vfhhRNOuDpV1GEnchrkH_U4_GesfrV)
+* Debug issue regarding RDS database connection.
 
 
 
@@ -192,3 +194,9 @@ To conclude, as a beginner, this project has been wonderful not only as a learni
 
 
 # Licenses
+  GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.

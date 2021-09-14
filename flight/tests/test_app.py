@@ -1,7 +1,7 @@
 #import modules needed
 from flask import url_for
 from flask_testing import TestCase
-#import applications classes and objects (which is object which is class)
+#import applications classes and objects 
 from application import app, db
 from application.models import Flights , Aeroplanes
 from datetime import datetime
