@@ -4,11 +4,20 @@ QA flask application with CRUD functionality
 
 # Contents
  
-[Project overview]
-[Project Tracking]
-[Risk Assesment]
-
-
+[Project overview](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#project-overview)
+[Project Tracking](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#project-tracking)
+[Risk Assesment](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#risk-assessment)
+[Architecture]()
+    -[ERD](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#erd)
+    -[Databases](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#databases)
+    -[CI Pipeline]()
+[Testing](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#testing)
+[The app](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#the-app)
+[Areas for improvements](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#areas-of-improvement)
+[Conclusion]()
+[References](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
+[Acknowledgements](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
+[Licenses](https://github.com/Scarlett100/Flight_CRUD_App/blob/dev/README.md#references)
 # Project Overview
 
 Our task was to build a Flask application that utilises CRUD functionality. 
@@ -74,10 +83,6 @@ This ERD had four tables and introduced different cardinality such as zero to ma
 
 
 
-Below this data was implemented into my models file code.
-
-![image](https://drive.google.com/uc?export=view&id=1RxlxBWXYBcIaOOIB-DOqN0C0xbNmL3ef)
-
 ## Databases
 
 Below this data was implemented into my models file code.
@@ -96,7 +101,7 @@ Although I was unable to get Jenkins to produce a complete build, a freestyle pr
 
 ![image](https://drive.google.com/uc?export=view&id=1KBi7FM9WE5gzO9eDagnoXP70xI2MGuBq)
 
-# Testing
+## Testing
 
 
 
@@ -136,7 +141,7 @@ Below is an extract from my unit test plan.
 ![image](https://drive.google.com/uc?export=view&id=1uxjTXubLoc3gIZ6otIjJOxaYQiLsBddh)
 
 
-# The app
+## The app
 
 Within my application, my homepage has a navigation bar that users could access to begin accessing CRUD functionality.
 
@@ -156,7 +161,7 @@ Also on these pages, is the option for users to update or delete their entry.
 
 
 
-# Areas of improvement
+## Areas of improvement
 
 A better working knowledge of HTML:Although not a part of the MVP, an improved working knowledge of HTML would have been very useful and more aesthetically pleasing
 Integration Testing within application: Improved reliability and reflection of the CRUD functionality
@@ -171,18 +176,18 @@ Debug issue regarding RDS dataabase connection.
 
 
 
-# Closing thoughts
+## Conclusion
 
 In future, I am confident that I have a good foundation and working knowledge that would enable me to create another Flask Crud application and build on my knowledge. 
 Combining my knowledge of Agile, databases, python, git and Visual Studio code enabled me to produce a Flask application in which users were able to access all CRUD functionality. 
 As aforementioned, in further improvements full grasping of Jenkins would be ideal and is something that I intend to implement. 
 To conclude, as a beginner, this project has been wonderful not only as a learning experience in how to produce an MVP and plan towards a stretch goal but also how to assess our strengths and areas for improvement.
 
-# References
+## References
     https://codebots.com/crud/how-to-test-CRUD
     https://www.w3schools.com/html/html_tables.asp
 
-# Acknowledgements
+## Acknowledgements
     I would like to acknowledge my tutors at QA for their teaching of technolodgies nescessary to complete this task.
 
 
