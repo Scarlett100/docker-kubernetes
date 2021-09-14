@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block information %}
+<h1> Aeroplanes </h1>
+{% for Aeroplanes in all_aeroplanes %}
+
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+    </style>
+    <table style="width:40%">
+    <tr>
+        <th>Aeroplane id</th>
+        <th>Model</th>
+        <th>seating capacity</th>
+        <th>operated by</th>
+        
+    </tr>
+    <tr>
+        <td> {{ Aeroplanes.aeroplane_id }} </td> 
+        <td> {{ Aeroplanes.model_number }} </td> 
+        <td> {{ Aeroplanes.number_of_seats }} </td>
+        <td> {{ Aeroplanes.company_owned_by }} </td>
+        
+    </tr>
+    </table>
+    
+  
+<a href="{{ url_for('updatePlane',id=Aeroplanes.aeroplane_id) }}"> update  this aeroplane </a> <br> 
+<a href="{{ url_for('delete_plane',id=Aeroplanes.aeroplane_id) }}"> delete this aeroplane </a> <br>
+{% endfor %}
+{% endblock information %}
