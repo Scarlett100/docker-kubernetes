@@ -1,6 +1,14 @@
 # Flight_CRUD_App
 QA flask application with CRUD functionality
 
+
+# Contents
+ 
+[Project overview]
+[Project Tracking]
+[Risk Assesment]
+
+
 # Project Overview
 
 Our task was to build a Flask application that utilises CRUD functionality. 
@@ -12,7 +20,7 @@ To do this I would first have to make a Trello Kanban board to decipher a realis
 In order to do this, I would need to incorporate and execute my knowledge of Python, Git, Basic Linux, CI, Databases, Cloud Fundamentals and testing.
 
 
-# Project tracking
+# Project Tracking
 
 Via the use of Trello a  Kanban board was created and  I began by entering all of the tasks I that had to be completed in order to achieve the minimum viable product. 
 Once this was done I began putting label codes on each task following MOSCOW framework. In order to work in an Agile way, and thus provide better results I began planning sprint one.  
@@ -43,8 +51,8 @@ The risk assessment responses I was able to implement such as restoring code bac
 ![image](https://drive.google.com/uc?export=view&id=1ah3WD01oCclMt2ERWCIurIHbqBDctqpl)
 
 My Risk Assesment can be accessed [here](https://qalearning-my.sharepoint.com/:x:/g/personal/sstewart_qa_com/ERUyRu7gX9xKo__9xxwu8YwBavBTVAdoKXzBUzWQ2M1NgQ?e=OgSf4j)
-
-# ERD
+# Architecture 
+## ERD
 
  My mvp ERD would contain two tables with the first being Aircraft with a primary key of aircraft_id and the second table being Flights with a primary key of flight_id containing a foreign key of aircraft_id.
 The cardinality between the tables was 1 to many.
@@ -70,9 +78,14 @@ Below this data was implemented into my models file code.
 
 ![image](https://drive.google.com/uc?export=view&id=1RxlxBWXYBcIaOOIB-DOqN0C0xbNmL3ef)
 
-# Databases
+## Databases
 
-#CI Pipeline
+Below this data was implemented into my models file code.
+
+![image](https://drive.google.com/uc?export=view&id=1RxlxBWXYBcIaOOIB-DOqN0C0xbNmL3ef)
+
+
+# CI Pipeline
 
 Within the CI pipeline we used Python, Flask, Jenkins, Git and Trello.
 Within python code was written in accordance to the Flask framwork, Pytests unit tests were also carried out within python. 
