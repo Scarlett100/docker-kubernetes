@@ -31,7 +31,7 @@ In order to do this, I would need to incorporate and execute my knowledge of Pyt
 
 # Project Tracking
 
-Via the use of Trello a  Kanban board was created and  I began by entering all of the tasks I that had to be completed in order to achieve the minimum viable product. 
+Via the use of Trello Kanban board was created and  I began by entering all of the tasks I that had to be completed in order to achieve the minimum viable product. 
 Once this was done I began putting label codes on each task following MOSCOW framework. In order to work in an Agile way, and thus provide better results I began planning sprint one.  
 I worked by implementing an Agile methodology and followed the MOSCoW framework in order to prioritise and ensure reaching the goal of MVP.
 As seen below, my Trello Board evolved over time, the first picture is from the beginning of the project, whilst the second is towards the end of the project.
