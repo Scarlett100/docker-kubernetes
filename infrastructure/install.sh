@@ -1,8 +1,8 @@
-#!/bin/bash 
+#bin!/bash 
 sudo apt-get update
 sudo apt install -y python3 python3-pip gunicorn
 git clone https://github.com/Scarlett100/Flight_CRUD_App.git
-cd./FLIGHT_CRUD_APP/flight
+cd ./FLIGHT_CRUD_APP/flight
 SECRET_KEY=ngjtnggjengjwnjrtj
 export SECRET_KEY
 pip3 install -r requirements.txt
